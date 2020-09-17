@@ -57,7 +57,7 @@ const SignUp: React.FC = () => {
         await api.post('/users', data);
 
         Alert.alert(
-          'Cadastro realizado com sucess!',
+          'Cadastro realizado com sucesso!',
           'Você já pode fazer login na aplicação',
         );
 
