@@ -1,6 +1,5 @@
 import React, { useRef, useCallback } from 'react';
 import {
-  Image,
   View,
   ScrollView,
   KeyboardAvoidingView,
@@ -38,7 +37,7 @@ interface ProfileFormData {
   password_confirmation: string;
 }
 
-const SignUp: React.FC = () => {
+const Profile: React.FC = () => {
   const { user, updateUser } = useAuth();
   const formRef = useRef<FormHandles>(null);
   const emailInputRef = useRef<TextInput>(null);
@@ -48,7 +47,7 @@ const SignUp: React.FC = () => {
 
   const navigation = useNavigation();
 
-  const handleSignUp = useCallback(
+  const handleUpdateProfile = useCallback(
     async (data: ProfileFormData) => {
       try {
         formRef.current?.setErrors({});
@@ -182,7 +181,11 @@ const SignUp: React.FC = () => {
               <Title>Meu perfil</Title>
             </View>
 
-            <Form initialData={user} ref={formRef} onSubmit={handleSignUp}>
+            <Form
+              initialData={user}
+              ref={formRef}
+              onSubmit={handleUpdateProfile}
+            >
               <Input
                 autoCapitalize="words"
                 name="name"
@@ -261,4 +264,4 @@ const SignUp: React.FC = () => {
   );
 };
 
-export default SignUp;
+export default Profile;
